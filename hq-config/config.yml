@@ -26,7 +26,7 @@ input_data_file: /mnt/home/apricewhelan/projects/apogee-dr17-binaries/simulated-
 input_data_format: fits
 
 ## The column name in the input data file that is unique per source:
-source_id_colname: APOGEE_ID
+source_id_colname: SIM_ID
 
 ## The column names in the input data file that contains the radial velocity,
 ## time, and radial velocity uncertainty data:
@@ -42,21 +42,22 @@ time_scale: tdb
 ##
 
 ## Name of the prior definition file:
-prior_file: /mnt/home/apricewhelan/projects/apogee-dr17-binaries/vac-pipeline/hq-config/prior.py
+prior_file: /mnt/home/apricewhelan/projects/apogee-dr17-binaries/simulated-test/hq-config/prior.py
 
 ## Number of prior samples to generate and cache:
 n_prior_samples: 200_000_000
 
 ## The maximum number of prior samples to use when running The Joker:
 ## (this defaults to the value set in n_prior_samples)
-max_prior_samples: null
+# max_prior_samples: null
+max_prior_samples: 16_000_000
 
 ## Name of the prior cache file to generate and/or use:
 ## (this defaults to a filename in the cache_path)
 prior_cache_file: null
 
 ## The number of posterior samples to generate per source:
-requested_samples_per_star: 1024
+requested_samples_per_star: 256
 
 ## Randomly draw samples from the prior cache:
 randomize_prior_order: True
@@ -83,3 +84,6 @@ mcmc_max_r_hat: 1.2
 ## This is the target acceptance ratio used for computing the dense mass matrix:
 mcmc_target_accept: 0.95
 
+
+# Not needed but have to specify:
+expand_subdir_column: FIELD
